@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "vuefirebase-60210": {
+      "hosting": {
+        "login": [
+          "vuefirebase-60210"
+        ]
+      }
+    }
+  }
+}
