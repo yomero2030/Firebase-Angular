@@ -1,29 +1,170 @@
-<div class="row">
-    <div class="col-md-6 mx-auto mt-5">
-      <div class="card">
-        <div class="card-body">
-          <h1 class="text-center">REGISTER</h1>
-          <form [formGroup]="registerForm" (ngSubmit)="onRegistro()">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" formControlName="email" />
+  <br>
+  <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Registro con Redes Sociales</a>
+    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Registro sin Redes Social </a>
+  </div>
+  <div class="tab-content" id="v-pills-tabContent">
+    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+      <div class="row">
+        <div class="col-md-6 mx-auto mt-5">
+          <div class="card">
+            <div class="card-body">
+              <h1 class="text-center">REGISTRO</h1>
+              <form [formGroup]="registerForm" (ngSubmit)= "onRegistro()" aria-autocomplete="nope">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" formControlName="email" />
+                 
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      formControlName="password"
+                    />
+                  </div>
+                  <div>
+                    <div>
+                      <div *ngIf="registerForm.get('password').errors && registerForm.get('password').dirty">
+                        <label class="text-danger" *ngIf="registerForm.get('password').hasError('minlength')">caracteres minimos</label>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-lg btn-block">
+                    Register
+                  </button>
+              </form>
+              <div class="form-group mt-3">
+                <p>ya tienes una cuenta<a routerLink="/login"> Login </a></p>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input
-                type="password"
-                class="form-control"
-                formControlName="password"
-              />
-            </div>
-            <button type="submit" class="btn btn-primary btn-lg btn-block">
-              Register
-            </button>
-          </form>
-          <div class="form-group mt-3">
-            <p>ya tienes una cuenta<a [routerLink]="['/login']"> Login </a></p>
           </div>
         </div>
       </div>
     </div>
+    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+      <div>
+        <div>
+          <form [formGroup]="formApi" >
+            <div class="row">
+              <div class="col-md-6 mx-auto mt-5">
+                <div class="card">
+                  <div class="card-body">
+                    <h1 class="text-center">REGISTRO</h1>
+                      <div class="form-group">
+                        <label for="name">Name</label>
+                        <input autocomplete="nope" type="name" class="form-control" formControlName="name" />
+                      </div>   
+                      <div class="form-group">
+                        <label for="last_name">last_name</label>
+                        <input autocomplete="nope" type="last_name" class="form-control" formControlName="last_name" />
+                      </div>
+                      <div class="form-group ">
+                        <label for="rol">modalidad que decee</label>
+                        <input autocomplete="nope" type="text" class="form-control" formControlName="rol" />
+                        <span class="input-group-text" id="basic-addon2">vendedor O comprador</span>
+                      </div>
+                      
+                      <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Correo Electronico"
+                            formControlName="email" autocomplete="nope" required>
+                        <!--Validar correo-->
+                        <label class="text-danger" *ngIf="formApi.controls['email'].hasError('email')">
+                            Ingresa una dirección de correo valida!
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Contraseña"
+                            formControlName="password" autocomplete="nope" required>
+                        <label *ngIf="f.password.touched && f.password.invalid" class="text-danger">
+                            <label *ngIf="f.password.errors.required">Contraseña requerida.</label>
+                        </label>
+                        <label class="text-danger" *ngIf="formApi.controls['password'].hasError('numero')">
+                            La contraseña debe contener un numero.
+                        </label>
+                        <label class="text-danger" *ngIf="formApi.controls['password'].hasError('mayuscula')">
+                            La contraseña debe contener una mayuscula.
+                        </label>
+                        <label class="text-danger" *ngIf="formApi.controls['password'].hasError('minuscula')">
+                            La contraseña debe contener un numero.
+                        </label>
+                        <label class="text-danger" *ngIf="formApi.controls['password'].hasError('caracter')">
+                            La contraseña debe contener un caracter.
+                        </label>
+                        <label class="text-danger" *ngIf="formApi.controls['password'].hasError('minlength')">
+                            La contraseña debe contener al menos 8 caracteres.
+                        </label>
+                        <label class="text-danger" *ngIf="formApi.controls['password'].hasError('maxlength')">
+                            La contraseña no debe ser mayor a 15 caracteres.
+                        </label>
+                    </div>
+                     
+                      <div class="form-group">
+                        <label autocomplete="nope" for="password">confirm Password</label>
+                        <input type="password" class="form-control" formControlName="confirmPassword" minlength="8" maxlength="15"
+                        />
+                      </div> 
+                      <div>
+                        <div *ngIf="formApi.get('confirmPassword').errors && formApi.get('confirmPassword').touched">
+                          <label class="text-danger" *ngIf="formApi.get('confirmPassword').hasError('required')">required </label>
+
+                        </div>
+                      </div>
+              
+                      <div>
+                        <br>
+                        <div>
+                          
+                          <button type="button" class="text-info"  data-toggle="modal" data-target="#exampleModalCenter">
+                            Acepto Terminos condicion
+                          </button>
+                        </div>
+                           <br>
+                          <div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block"
+                                    [disabled]="!formApi.valid" (click) = " saveUser(formApi.value)">Registrar</button>
+                          </div>
+                      </div>
+            
+                      <div class="form-group mt-3">
+                        <p>ya tienes una cuenta<a [routerLink]="['/login']"> Login </a></p>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </form>
+          <div>
+            
+          </div>
+        </div>
+        
+        
+      </div>
+    </div>
   </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Acepta terminos condiciones  </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+      </div>
+      <div class="modal-body">
+      <p> si finaliza el registro usted esta aceptando los terminos y condiciones de Hamacas.com </p>
+      <p>porfavor leer el  Aviso de privacidad</p>
+       <button class="btn btn-link" data-dismiss="modal" (click) = "avisoPriv()"> aviso privacidad </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

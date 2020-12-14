@@ -4,16 +4,6 @@
 
 export const environment = {
   production: false,
-   firebaseConfig : {
-    apiKey: "AIzaSyC_IpzrJLhU-Q9irScr_nWEg6HF_t106vo",
-    authDomain: "vuefirebase-60210.firebaseapp.com",
-    databaseURL: "https://vuefirebase-60210.firebaseio.com",
-    projectId: "vuefirebase-60210",
-    storageBucket: "vuefirebase-60210.appspot.com",
-    messagingSenderId: "1066215669192",
-    appId: "1:1066215669192:web:2743e3d0c53ead950894fd",
-   
-  }
 };
 
 /*

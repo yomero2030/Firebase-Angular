@@ -1,0 +1,29 @@
+
+<div class="card" > 
+    <div class="card-body"> 
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id_usuario</th>
+            <th scope="col">Nombre Usuario</th>
+            <th scope="col">Metodo de Inicio de sesión</th>
+            <th scope="col">Status</th>
+            <th scope="col">Tipo de Usuario</th>
+            <th scope="col">Actividad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let log of archLogs; index as i">
+            <td>{{ i + 1}}</td>
+            <td>{{ log.userId}}</td>
+            <td>{{ log.userName}}</td>
+            <td>{{ log.formaInicio}}</td>
+            <td>{{ log.status}}</td>
+            <td>{{ log.rols}}</td>
+            <td>{{log.actividad}}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>

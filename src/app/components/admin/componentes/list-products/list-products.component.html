@@ -1,0 +1,30 @@
+<div class="card" > 
+    <div class="card-body"> 
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">IdProducto</th>
+            <th scope="col">Nombre Producto</th>
+            <th scope="col">Precio</th>
+            <th scope="=col">categoria</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">imagen</th>
+            <th scope="col">vendedor</th>
+          </tr>
+        </thead>
+        <tbody>
+  <tr *ngFor="let users of products; index as i">
+            <td>{{ i + 1}}</td>
+            <td>{{ users.id}}</td>
+            <td>{{ users.nombre}}</td>
+            <td>{{ users.precio}}</td>
+            <td>{{users.categoria}}</td>
+            <td>{{users.descripcion}}</td>
+            <td>{{users.imagen}}</td>
+              <td>{{users.idUser}}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>

@@ -1,0 +1,107 @@
+<div class="card" > 
+    <div class="card-body"> 
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">IdProducto</th>
+            <th scope="col">Nombre Producto</th>
+            <th scope="col">Precio</th>
+            <th scope="=col">categoria</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">imagen</th>
+            <th scope="col">vendedor</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+  <tr *ngFor="let users of products; index as i">
+            <td>{{ i + 1}}</td>
+            <td>{{ users.id}}</td>
+            <td>{{ users.nombre}}</td>
+            <td>{{ users.precio}}</td>
+            <td>{{users.categoria}}</td>
+            <td>{{users.descripcion}}</td>
+            <td>{{users.imagen}}</td>
+            <td>{{users.idUser}}</td>
+            <td> <button class="btn btn-danger" (click)="EliminarProducto(users.id)">eliminar</button> </td>
+            <td> <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"  (click)="EditarProducto(users.id)" > Editar  </button> </td>
+
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Actualizar product</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <form [formGroup]="registroForm" >
+            <div class="row">
+              <div class="col-md-10 mx-auto mt-9">
+                <div class="card">
+                  <div class="card-body">
+                    <h1 class="text-center">Editar Producto </h1>
+      
+                      <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input autocomplete="nope" type="name" class="form-control" formControlName="nombre" />
+                      </div>   
+      
+                      <div class="form-group">
+                        <label for="last_name">Categoria</label>
+                        <input autocomplete="nope" type="last_name" class="form-control" formControlName="categoria" />
+                      </div>
+      
+                      <div class="form-group ">
+                        <label for="rol">Precio</label>
+                        <input autocomplete="nope" type="text" class="form-control" formControlName="precio" />
+                     </div>
+      
+                     <div class="form-group ">
+                      <label for="rol">Descripcion</label>
+                      <input autocomplete="nope" type="text" class="form-control" formControlName="descripcion" />
+                      </div>
+      
+                      <div class="form-group ">
+                          <label for="rol">Imagen</label>
+                          <input autocomplete="nope" type="text" class="form-control" formControlName="imagen" />
+                       </div>
+                      
+                         
+                      <div>
+                        <div>
+                          <button type="submit" data-dismiss="modal" class="btn btn-primary btn-lg btn-block"
+                               (click) = "EnviarProducto(registroForm)">Guaradar Cambios</button>
+                        </div>
+                      </div> 
+      
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </form>
+          <div>
+            
+          </div>
+        </div>
+
+
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div>
+    <form [formGroup]="formProducts" >
+      <div class="row">
+        <div class="col-md-6 mx-auto mt-5">
+          <div class="card">
+            <div class="card-body">
+              <h1 class="text-center">Registro Productos </h1>
+
+                <div class="form-group">
+                  <label for="name">Nombre</label>
+                  <input autocomplete="nope" type="name" class="form-control" formControlName="nombre" />
+                </div>   
+
+                <div class="form-group">
+                  <label for="last_name">Categoria</label>
+                  <input autocomplete="nope" type="last_name" class="form-control" formControlName="categoria" />
+                </div>
+
+                <div class="form-group ">
+                  <label for="rol">Precio</label>
+                  <input autocomplete="nope" type="text" class="form-control" formControlName="precio" />
+               </div>
+
+               <div class="form-group ">
+                <label for="rol">Descripcion</label>
+                <input autocomplete="nope" type="text" class="form-control" formControlName="descripcion" />
+                </div>
+
+                <div class="form-group ">
+                    <label for="rol">Imagen</label>
+                    <input autocomplete="nope" type="text" class="form-control" formControlName="imagen" />
+                 </div>
+                
+                   
+                <div>
+                    <div>
+                      <button type="submit" class="btn btn-primary btn-lg btn-block"
+                              [disabled]="!formProducts.valid" (click) = " guardarProductos(formProducts.value)">Registrar</button>
+                    </div>
+                </div> 
+
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </form>
+    <div>
+      
+    </div>
+  </div>

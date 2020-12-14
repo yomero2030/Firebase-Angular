@@ -1,0 +1,27 @@
+
+<div class="card" > 
+    <div class="card-body"> 
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id_usuario</th>
+            <th scope="col">Nombre Usuario</th>
+            <th scope="col">apellidos</th>
+            <th scope="col"></th>
+            <th scope="col">Tipo de Usuario</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let users of users; index as i">
+            <td>{{ i + 1}}</td>
+            <td>{{ users.id}}</td>
+            <td>{{ users.name}}</td>
+            <td>{{ users.last_name}}</td>
+            <td>{{ users.email}}</td>
+            <td>{{ users.rol}}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
